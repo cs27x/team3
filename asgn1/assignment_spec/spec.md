@@ -24,6 +24,7 @@ This app can be designed as a web or mobile app (this is left up to the implemen
 3. As a resident of Nasvhille, I can search events by category so that I can find events that are relevant to what I want to do (categories of events are up to you).
 4. As a resident of Nashville, I can mark events that I would like to go to so that I can look them up later.
 5. As a resident of Nashville, I can see how many people are planning to go to this event, so that I can determine if it's an event I would like to go to.
+6. As a resident of Nashville, I can see events that I posted so that I know what events I've published to the app.
 
 ###Suggestions
 
