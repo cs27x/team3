@@ -36,6 +36,9 @@ This app can be designed as a web or mobile app (this is left up to the implemen
 
 
 ###Evaluation Rubric
+
+This is a total of 95 points.
+
 0. **(25pt)** - As a resident of Nashville, I can search events that are going on today so that I can find something to do.
     * Provide a way for users to explicitly search for events that are going on today
     * All the events that show in your today list also show up in the list of today events for whatever backend you are using.
@@ -58,11 +61,7 @@ This app can be designed as a web or mobile app (this is left up to the implemen
     * Each event has some indication of the number of people attending.
     * Note: User story 5 has users indicate they are going to an event, which is an important step in adding this feature.
 
-6. **(5 pt)** - As a resident of Nashville, I can see events that I posted so that I know what events I've published to the app.
-    * A user has access to a "My Events" section that shows all events they have created
-    * All events the user has created show up in this section.
-
-7. **(10 pt)** - Consistent and good style.
+6. **(10 pt)** - Consistent and good style.
     * All classes are in packages with full lower case names, no non-alphanumeric characters, and at least 2 dotted package components (e.g., "com.foo" vs. just "com") (2pt)
     * All classes have only private member variables that are accessed from other classes via getter/setter methods (2pt)
     * All class names are title cased (2pt)
