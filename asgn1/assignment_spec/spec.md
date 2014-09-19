@@ -37,7 +37,7 @@ This app can be designed as a web or mobile app (this is left up to the implemen
 
 ###Evaluation Rubric
 
-This is a total of 95 points.
+This is a total of 85 points.
 
 0. **(25pt)** - As a resident of Nashville, I can search events that are going on today so that I can find something to do.
     * Provide a way for users to explicitly search for events that are going on today
@@ -47,21 +47,17 @@ This is a total of 95 points.
     * A user who is posting an event can then find there event somewhere in the app
     
 2. **(10pt)** - As a resident of Nashville, I can search events in a particular location so that I can go to events that are close to me.
-    * A user can search for events by section of Nashville (East Nashville, West Nashville, Downtown, etc...). It is up to the implementing team to decide what sections should be available.
+    * A user can search for events by address.
 
 3. **(10pt)** - As a resident of Nasvhille, I can search events by category so that I can find events that are relevant to what I want to do (categories of events are up to you).
     * A user has some way of explicitly filtering content by category.
     * All events in this category should show up when searching the category.
 
-4. **(10 pt)** - As a resident of Nashville, I can mark events that I plan to go to so that I can view these events later.
-    * Events that a user marks show up in some section for "Attending Events".
-    * All events that I am going to show up in this section"
-
-5. **(10 pt)** - As a resident of Nashville, I can see how many people are planning to go to an event, so that I can determine if it's an event I would like to go to.
+4. **(10 pt)** - As a resident of Nashville, I can see how many people are planning to go to an event, so that I can determine if it's an event I would like to go to.
     * Each event has some indication of the number of people attending.
     * Note: User story 5 has users indicate they are going to an event, which is an important step in adding this feature.
 
-6. **(10 pt)** - Consistent and good style.
+5. **(10 pt)** - Consistent and good style.
     * All classes are in packages with full lower case names, no non-alphanumeric characters, and at least 2 dotted package components (e.g., "com.foo" vs. just "com") (2pt)
     * All classes have only private member variables that are accessed from other classes via getter/setter methods (2pt)
     * All class names are title cased (2pt)
