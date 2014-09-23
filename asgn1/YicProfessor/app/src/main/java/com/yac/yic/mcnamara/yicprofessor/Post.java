@@ -20,6 +20,7 @@ public class Post {
             this.content = content;
             this.professor = professor;
             this.timestamp = new Date();
+            System.out.println(timestamp.toString());
         }
         else{
             throw new InvalidParameterException();
