@@ -17,11 +17,11 @@ import org.w3c.dom.Text;
 
 public class NewsFeedActivity extends ListActivity {
 
-    private class NewsfeedAdapter extends ArrayAdapter<String> {
+    private class NewsFeedAdapter extends ArrayAdapter<Post> {
         private final Context context;
-        private final String[] values;
+        private Post[] values;
 
-        public NewsfeedAdapter(Context context, String[] values) {
+        public NewsFeedAdapter(Context context, Post[] values) {
             super(context, R.layout.news_feed_list_item, values);
             this.context = context;
             this.values = values;
@@ -36,8 +36,8 @@ public class NewsFeedActivity extends ListActivity {
             TextView professorView = (TextView)rowView.findViewById(R.id.professor);
             TextView contentView = (TextView)rowView.findViewById(R.id.content);
 
-            professorView.setText("Hello World!");
-            contentView.setText("This is Brendan's Content.");
+            professorView.setText("Sample Course");
+            contentView.setText(this.getItem(position).getContent());
             return rowView;
         }
     }
@@ -49,8 +49,11 @@ public class NewsFeedActivity extends ListActivity {
 
         setContentView(R.layout.activity_news_feed);
 
-        String[] values = {"This", "Is", "A", "List"};
-        NewsfeedAdapter adapter = new NewsfeedAdapter(this, values);
+        Post temp = new Post("test1");
+        Post temp2 = new Post("test2");
+        Post[] values = {temp, temp2};
+
+        NewsFeedAdapter adapter = new NewsFeedAdapter(this, values);
         setListAdapter(adapter);
     }
 
