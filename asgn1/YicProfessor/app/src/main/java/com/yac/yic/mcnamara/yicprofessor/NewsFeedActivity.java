@@ -57,14 +57,12 @@ public class NewsFeedActivity extends ListActivity {
         setListAdapter(adapter);
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.news_feed, menu);
         return true;
     }
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -73,6 +71,10 @@ public class NewsFeedActivity extends ListActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_settings) {
+            return true;
+        }
+        if (id == R.id.action_new) {
+            // Add prompt for text input here
             return true;
         }
         return super.onOptionsItemSelected(item);
