@@ -3,6 +3,7 @@ package com.yac.yic.mcnamara.yicprofessor;
 import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -16,6 +17,8 @@ import org.w3c.dom.Text;
 
 
 public class NewsFeedActivity extends ListActivity {
+
+    final static int REQUEST = 1;
 
     private class NewsFeedAdapter extends ArrayAdapter<Post> {
         private final Context context;
@@ -72,9 +75,25 @@ public class NewsFeedActivity extends ListActivity {
         int id = item.getItemId();
 
         if (id == R.id.action_new) {
-            // Add prompt for text input here
+            Intent intent = new Intent(this, TextPrompt.class);
+            startActivityForResult(intent, REQUEST);
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch(requestCode) {
+            case (REQUEST) : {
+                if (resultCode == Activity.RESULT_OK) {
+                    String prof = data.getStringExtra("professor");
+                    String text = data.getStringExtra("text");
+                    //TODO call method to add this to the list
+                }
+                break;
+            }
+        }
     }
 }
