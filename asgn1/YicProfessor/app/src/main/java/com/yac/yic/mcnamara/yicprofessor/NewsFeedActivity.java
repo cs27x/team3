@@ -5,6 +5,7 @@ import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,18 +16,21 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import java.security.InvalidParameterException;
+import java.util.ArrayList;
+
 
 public class NewsFeedActivity extends ListActivity {
 
     final static int REQUEST = 1;
-    Post[] values;
+    public static ArrayList<Post> values = new ArrayList<Post>();
     NewsFeedAdapter adapter;
 
     private class NewsFeedAdapter extends ArrayAdapter<Post> {
         private final Context context;
-        private Post[] values = {};
+        private ArrayList<Post> values = null;
 
-        public NewsFeedAdapter(Context context, Post[] values) {
+        public NewsFeedAdapter(Context context, ArrayList<Post> values) {
             super(context, R.layout.news_feed_list_item, values);
             this.context = context;
             this.values = values;
@@ -45,6 +49,13 @@ public class NewsFeedActivity extends ListActivity {
             contentView.setText(this.getItem(position).getContent());
             return rowView;
         }
+
+        @Override
+        public void add(Post object){
+            if (object == null)
+                throw new InvalidParameterException();
+            values.add(object);
+        }
     }
 
     @Override
@@ -52,7 +63,6 @@ public class NewsFeedActivity extends ListActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_news_feed);
-
         adapter = new NewsFeedAdapter(this, values);
         setListAdapter(adapter);
     }
@@ -87,8 +97,9 @@ public class NewsFeedActivity extends ListActivity {
         switch(requestCode) {
             case (REQUEST) : {
                 if (resultCode == Activity.RESULT_OK) {
-                    String prof = data.getStringExtra("professor");
-                    String text = data.getStringExtra("text");
+                    Bundle bundle = data.getExtras();
+                    String prof = bundle.getString("professor");
+                    String text = bundle.getString("text");
                     addPost(prof, text);
                 }
                 break;
@@ -99,7 +110,7 @@ public class NewsFeedActivity extends ListActivity {
     //add data to the list of posts and update the adapter
     public void addPost(String professor, String text){
         Post post = new Post(professor, text);
-        values[values.length] = post;
+        adapter.add(post);
         adapter.notifyDataSetChanged();
     }
 }

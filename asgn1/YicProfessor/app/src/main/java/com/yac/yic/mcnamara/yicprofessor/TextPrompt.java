@@ -3,8 +3,10 @@ package com.yac.yic.mcnamara.yicprofessor;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.EditText;
 
 
@@ -39,14 +41,14 @@ public class TextPrompt extends Activity {
     }
 
     //callback to post to the list.
-    public void onPost() {
+    public void onPost(View view) {
         newProfessor = (EditText)findViewById(R.id.professor);
         newProfessor = (EditText)findViewById(R.id.professor);
         newText = (EditText)findViewById(R.id.text);
 
         Intent resultIntent = new Intent();
-        resultIntent.putExtra("professor", newProfessor.getText());
-        resultIntent.putExtra("text", newText.getText());
+        resultIntent.putExtra("professor", newProfessor.getText().toString());
+        resultIntent.putExtra("text", newText.getText().toString());
         setResult(Activity.RESULT_OK, resultIntent);
         finish();
     }
