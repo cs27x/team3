@@ -39,12 +39,11 @@ public class NewsFeedActivity extends ListActivity {
             TextView professorView = (TextView)rowView.findViewById(R.id.professor);
             TextView contentView = (TextView)rowView.findViewById(R.id.content);
 
-            professorView.setText("Sample Course");
+            professorView.setText(this.getItem(position).getProfessor());
             contentView.setText(this.getItem(position).getContent());
             return rowView;
         }
     }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +51,7 @@ public class NewsFeedActivity extends ListActivity {
 
         setContentView(R.layout.activity_news_feed);
 
-        Post temp = new Post("test1");
+        Post temp = new Post("Dr. Roth", "test1");
         Post temp2 = new Post("test2");
         Post[] values = {temp, temp2};
 
