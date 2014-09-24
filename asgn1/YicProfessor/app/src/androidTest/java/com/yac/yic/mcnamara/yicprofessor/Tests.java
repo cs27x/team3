@@ -22,4 +22,5 @@ public class Tests extends AndroidTestCase {
         assertTrue(fmt.format(myPost.getTimestamp()).equals(fmt.format(now)));
     }
 
+
 }

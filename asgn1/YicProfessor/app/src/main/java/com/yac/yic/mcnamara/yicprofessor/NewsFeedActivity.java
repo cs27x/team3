@@ -19,10 +19,12 @@ import org.w3c.dom.Text;
 public class NewsFeedActivity extends ListActivity {
 
     final static int REQUEST = 1;
+    Post[] values;
+    NewsFeedAdapter adapter;
 
     private class NewsFeedAdapter extends ArrayAdapter<Post> {
         private final Context context;
-        private Post[] values;
+        private Post[] values = {};
 
         public NewsFeedAdapter(Context context, Post[] values) {
             super(context, R.layout.news_feed_list_item, values);
@@ -51,11 +53,7 @@ public class NewsFeedActivity extends ListActivity {
 
         setContentView(R.layout.activity_news_feed);
 
-        Post temp = new Post("Dr. Roth", "test1");
-        Post temp2 = new Post("test2");
-        Post[] values = {temp, temp2};
-
-        NewsFeedAdapter adapter = new NewsFeedAdapter(this, values);
+        adapter = new NewsFeedAdapter(this, values);
         setListAdapter(adapter);
     }
 
@@ -74,6 +72,7 @@ public class NewsFeedActivity extends ListActivity {
         int id = item.getItemId();
 
         if (id == R.id.action_new) {
+            //start the text prompt activity with result callback
             Intent intent = new Intent(this, TextPrompt.class);
             startActivityForResult(intent, REQUEST);
             return true;
@@ -81,6 +80,7 @@ public class NewsFeedActivity extends ListActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    //callback result
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -89,10 +89,17 @@ public class NewsFeedActivity extends ListActivity {
                 if (resultCode == Activity.RESULT_OK) {
                     String prof = data.getStringExtra("professor");
                     String text = data.getStringExtra("text");
-                    //TODO call method to add this to the list
+                    addPost(prof, text);
                 }
                 break;
             }
         }
+    }
+
+    //add data to the list of posts and update the adapter
+    public void addPost(String professor, String text){
+        Post post = new Post(professor, text);
+        values[values.length] = post;
+        adapter.notifyDataSetChanged();
     }
 }
