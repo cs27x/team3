@@ -4,5 +4,10 @@
     <string name="app_name">YicProfessor</string>
     <string name="action_new">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_text_prompt">TextPrompt</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="prof_name">Professor Name</string>
+    <string name="text_prompt">Enter Message</string>
+    <string name="post">Post</string>
 
 </resources>

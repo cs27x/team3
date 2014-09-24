@@ -3,7 +3,9 @@ package com.yac.yic.mcnamara.yicprofessor;
 import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,14 +16,21 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import java.security.InvalidParameterException;
+import java.util.ArrayList;
+
 
 public class NewsFeedActivity extends ListActivity {
 
+    final static int REQUEST = 1;
+    public static ArrayList<Post> values = new ArrayList<Post>();
+    NewsFeedAdapter adapter;
+
     private class NewsFeedAdapter extends ArrayAdapter<Post> {
         private final Context context;
-        private Post[] values;
+        private ArrayList<Post> values = null;
 
-        public NewsFeedAdapter(Context context, Post[] values) {
+        public NewsFeedAdapter(Context context, ArrayList<Post> values) {
             super(context, R.layout.news_feed_list_item, values);
             this.context = context;
             this.values = values;
@@ -40,6 +49,13 @@ public class NewsFeedActivity extends ListActivity {
             contentView.setText(this.getItem(position).getContent());
             return rowView;
         }
+
+        @Override
+        public void add(Post object){
+            if (object == null)
+                throw new InvalidParameterException();
+            values.add(object);
+        }
     }
 
     @Override
@@ -47,12 +63,7 @@ public class NewsFeedActivity extends ListActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_news_feed);
-
-        Post temp = new Post("Dr. Roth", "test1");
-        Post temp2 = new Post("test2");
-        Post[] values = {temp, temp2};
-
-        NewsFeedAdapter adapter = new NewsFeedAdapter(this, values);
+        adapter = new NewsFeedAdapter(this, values);
         setListAdapter(adapter);
     }
 
@@ -71,9 +82,35 @@ public class NewsFeedActivity extends ListActivity {
         int id = item.getItemId();
 
         if (id == R.id.action_new) {
-            // Add prompt for text input here
+            //start the text prompt activity with result callback
+            Intent intent = new Intent(this, TextPrompt.class);
+            startActivityForResult(intent, REQUEST);
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    //callback result
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch(requestCode) {
+            case (REQUEST) : {
+                if (resultCode == Activity.RESULT_OK) {
+                    Bundle bundle = data.getExtras();
+                    String prof = bundle.getString("professor");
+                    String text = bundle.getString("text");
+                    addPost(prof, text);
+                }
+                break;
+            }
+        }
+    }
+
+    //add data to the list of posts and update the adapter
+    public void addPost(String professor, String text){
+        Post post = new Post(professor, text);
+        adapter.add(post);
+        adapter.notifyDataSetChanged();
     }
 }
