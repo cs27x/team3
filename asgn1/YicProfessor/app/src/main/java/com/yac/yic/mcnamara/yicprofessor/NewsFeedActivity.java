@@ -5,7 +5,6 @@ import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,9 +13,9 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
 
 import java.security.InvalidParameterException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 
@@ -44,9 +43,20 @@ public class NewsFeedActivity extends ListActivity {
             View rowView = inflater.inflate(R.layout.news_feed_list_item, parent, false);
             TextView professorView = (TextView)rowView.findViewById(R.id.professor);
             TextView contentView = (TextView)rowView.findViewById(R.id.content);
+            TextView timeView = (TextView)rowView.findViewById(R.id.timestamp);
 
+            // Adds Professors name to View
             professorView.setText(this.getItem(position).getProfessor());
+            // Adds Content to View
             contentView.setText(this.getItem(position).getContent());
+
+            // Formats date and adds it to view.
+            SimpleDateFormat day = new SimpleDateFormat("EEEE");
+            SimpleDateFormat time = new SimpleDateFormat("hh:mm a");
+            String datetime = day.format(this.getItem(position).getTimestamp()) + " at " +
+                    time.format(this.getItem(position).getTimestamp());
+
+            timeView.setText(datetime);
             return rowView;
         }
 
@@ -112,5 +122,6 @@ public class NewsFeedActivity extends ListActivity {
         Post post = new Post(professor, text);
         adapter.add(post);
         adapter.notifyDataSetChanged();
+
     }
 }
