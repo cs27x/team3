@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pre-dex-items>
+
+    <item
+        dex="C:\Users\Michael\Documents\CS278\team3\asgn1\NashvilleEventCalendar\app\build\intermediates\pre-dexed\debug\support-v4-19.0.0-b6aeb338d681bcd6dbd71adfb1f1e58a1da626ec.jar"
+        jar="C:\Users\Michael\AppData\Local\Android\android-studio\sdk\extras\android\m2repository\com\android\support\support-v4\19.0.0\support-v4-19.0.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="afee690af14bd2c32d400cdf78e746fd45c386fa"/>
+
+</pre-dex-items>
