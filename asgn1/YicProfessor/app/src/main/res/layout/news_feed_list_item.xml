@@ -25,6 +25,8 @@
         android:layout_toRightOf="@id/icon"
         android:ellipsize="marquee"
         android:singleLine="true"
+        android:paddingLeft="20dip"
+        android:paddingRight="20dip"
         android:text="Time"
         android:textSize="10sp" />
 
@@ -37,6 +39,8 @@
         android:layout_toRightOf="@id/icon"
         android:ellipsize="marquee"
         android:singleLine="true"
+        android:paddingLeft="20dip"
+        android:paddingRight="20dip"
         android:text="Description"
         android:textSize="12sp" />
 
@@ -48,6 +52,8 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:layout_alignWithParentIfMissing="true"
+        android:paddingLeft="20dip"
+        android:paddingRight="20dip"
         android:layout_toRightOf="@id/icon"
         android:gravity="center_vertical"
         android:text="Example application"
