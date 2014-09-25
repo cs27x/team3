@@ -43,13 +43,16 @@ public class TextPrompt extends Activity {
     //callback to post to the list.
     public void onPost(View view) {
         newProfessor = (EditText)findViewById(R.id.professor);
-        newProfessor = (EditText)findViewById(R.id.professor);
         newText = (EditText)findViewById(R.id.text);
+        // Need to add alert to fill in fields properly
+        if(!newProfessor.getText().toString().equals("") &&
+                !newText.getText().toString().equals("")) {
 
-        Intent resultIntent = new Intent();
-        resultIntent.putExtra("professor", newProfessor.getText().toString());
-        resultIntent.putExtra("text", newText.getText().toString());
-        setResult(Activity.RESULT_OK, resultIntent);
-        finish();
+            Intent resultIntent = new Intent();
+            resultIntent.putExtra("professor", newProfessor.getText().toString());
+            resultIntent.putExtra("text", newText.getText().toString());
+            setResult(Activity.RESULT_OK, resultIntent);
+            finish();
+        }
     }
 }
