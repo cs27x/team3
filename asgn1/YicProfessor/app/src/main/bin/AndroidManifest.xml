@@ -16,14 +16,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".TextPrompt"
-            android:label="@string/title_activity_text_prompt"
-            android:parentActivityName=".NewsFeedActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.yac.yic.mcnamara.yicprofessor.NewsFeedActivity" />
-        </activity>
     </application>
 
 </manifest>
