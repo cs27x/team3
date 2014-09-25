@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0fd6617b-d0ab-4424-a142-4af5b20c28ee" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/.name" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/asgn1/YicProfessor/app/src/main/gen/com/yac/yic/mcnamara/yicprofessor/Manifest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/asgn1/YicProfessor/app/src/androidTest/androidTest.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/asgn1/YicProfessor/app/src/main/main.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/asgn1/YicProfessor/app/src/main/gen/com/yac/yic/mcnamara/yicprofessor/BuildConfig.java" afterPath="$PROJECT_DIR$/asgn1/YicProfessor/app/src/main/gen/com/yac/yic/mcnamara/yicprofessor/BuildConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/asgn1/YicProfessor/app/src/main/res/menu/text_prompt.xml" afterPath="$PROJECT_DIR$/asgn1/YicProfessor/app/src/main/res/menu/text_prompt.xml" />
-    </list>
+    <list default="true" id="0fd6617b-d0ab-4424-a142-4af5b20c28ee" name="Default" comment="" />
     <ignored path="team3.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
